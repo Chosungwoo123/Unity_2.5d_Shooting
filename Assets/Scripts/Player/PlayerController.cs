@@ -62,11 +62,11 @@ public class PlayerController : MonoBehaviour
 
         if (x != 0 && x < 0)
         {
-            sr.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (x != 0 && x > 0)
         {
-            sr.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
     
