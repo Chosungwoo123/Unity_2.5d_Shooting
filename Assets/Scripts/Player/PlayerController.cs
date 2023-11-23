@@ -10,18 +10,23 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask terrainLayer;
 
+    private bool isRun;
+    
     private Rigidbody rigid;
     private SpriteRenderer sr;
+    private Animator anim;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
         MoveUpdate();
+        AnimationUpdate();
     }
 
     private void MoveUpdate()
@@ -42,10 +47,19 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
         Vector3 moveDir = new Vector3(x, 0, y);
         rigid.velocity = moveDir * moveSpeed;
+
+        if (moveDir != Vector3.zero)
+        {
+            isRun = true;
+        }
+        else
+        {
+            isRun = false;
+        }
 
         if (x != 0 && x < 0)
         {
@@ -55,5 +69,10 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX = false;
         }
+    }
+    
+    private void AnimationUpdate()
+    {
+        anim.SetBool("isRun", isRun);
     }
 }
