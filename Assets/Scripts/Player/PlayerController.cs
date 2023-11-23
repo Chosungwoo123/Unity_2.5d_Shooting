@@ -42,17 +42,16 @@ public class PlayerController : MonoBehaviour
                 Vector3 movePos = transform.position;
                 movePos.y = hit.point.y + groundDist;
                 transform.position = movePos;
-                
-                Debug.Log("gg");
             }
         }
 
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
         Vector3 moveDir = new Vector3(x, 0, y);
-        rigid.velocity = moveDir * moveSpeed;
+        
+        rigid.velocity = moveDir.normalized * moveSpeed;
 
-        if (moveDir != Vector3.zero)
+        if (moveDir.normalized != Vector3.zero)
         {
             isRun = true;
         }
