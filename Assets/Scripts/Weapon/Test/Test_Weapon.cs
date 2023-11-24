@@ -30,7 +30,7 @@ public class Test_Weapon : MonoBehaviour
         // 마우스 위치에 적이 있으면 총알 방향을 그쪽으로 정함
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemyLayer))
         {
-            dir = hit.point - shotPos.position;
+            dir = hit.collider.transform.position - shotPos.position;
        
             dir = new Vector3(dir.x, 0, dir.z);
         }
