@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Test_Weapon : MonoBehaviour
 {
@@ -49,7 +50,9 @@ public class Test_Weapon : MonoBehaviour
         }
         
         var _bullet = Instantiate(bullet, shotPos.position, Quaternion.identity);
+
+        Vector3 randomPos = new Vector3(Random.Range(-2f, 2f), 0, Random.Range(-2f, 2f));
         
-        _bullet.Init(dir);
+        _bullet.Init(dir + randomPos);
     }
 }
