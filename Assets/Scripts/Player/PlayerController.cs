@@ -5,12 +5,37 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region 기본 스탯
+    
+    [Space(10)]
+    [Header("기본 스탯")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float groundDist;
 
+    #endregion
+
+    #region 대쉬 관련 스탯
+
+    [Space(10)]
+    [Header("대쉬 관련 스탯")]
+    [SerializeField] private float dashTime;
+    [SerializeField] private KeyCode dashKey = KeyCode.LeftShift;
+    [SerializeField] private float dashCoolTime;
+    [SerializeField] private float dashSpeed;
+
+    #endregion
+    
     public LayerMask terrainLayer;
 
+    private float dashTimer;
+    
     private bool isRun;
+    private bool isDash;
+    private bool canDash;
+
+    private Vector3 moveDirection;
+
+    private WaitForSeconds dashTimeSeconds;
     
     private Rigidbody rigid;
     private SpriteRenderer sr;
@@ -18,19 +43,59 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        // 변수 초기화
         rigid = GetComponent<Rigidbody>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        canDash = true;
+
+        dashTimeSeconds = new WaitForSeconds(dashTime);
     }
 
     private void Update()
     {
-        MoveUpdate();
+        InputUpdate();
+        DashUpdate();
         AnimationUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        MoveUpdate();
+    }
+
+    private void InputUpdate()
+    {
+        // Dash
+        if (Input.GetKeyDown(dashKey) && canDash)
+        {
+            StartCoroutine(DashRoutine());
+        }
+    }
+    
+    private void DashUpdate()
+    {
+        if (isDash)
+        {
+            return;
+        }
+        
+        dashTimer -= Time.deltaTime;
+
+        if (dashTimer <= 0)
+        {
+            canDash = true;
+        }
     }
 
     private void MoveUpdate()
     {
+        if (isDash)
+        {
+            return;
+        }
+        
         RaycastHit hit;
         Vector3 castPos = transform.position;
         castPos.y += 1;
@@ -45,13 +110,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-        Vector3 moveDir = new Vector3(x, 0, y);
+        moveDirection.x = Input.GetAxisRaw("Horizontal");
+        moveDirection.z = Input.GetAxisRaw("Vertical");
         
-        rigid.velocity = moveDir.normalized * moveSpeed;
+        rigid.velocity = moveDirection.normalized * moveSpeed;
 
-        if (moveDir.normalized != Vector3.zero)
+        if (moveDirection.normalized != Vector3.zero)
         {
             isRun = true;
         }
@@ -60,14 +124,36 @@ public class PlayerController : MonoBehaviour
             isRun = false;
         }
 
-        if (x != 0 && x < 0)
+        if (moveDirection.x != 0 && moveDirection.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (x != 0 && x > 0)
+        else if (moveDirection.x != 0 && moveDirection.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+    
+    private IEnumerator DashRoutine()
+    {
+        isDash = true;
+
+        canDash = false;
+        
+        if (moveDirection == Vector3.zero)
+        {
+            moveDirection.z = 1;
+        }
+        
+        rigid.velocity = moveDirection.normalized * dashSpeed;
+
+        yield return dashTimeSeconds;
+        
+        isDash = false;
+        
+        dashTimer = dashCoolTime;
+        
+        rigid.velocity = Vector3.zero;
     }
     
     private void AnimationUpdate()
