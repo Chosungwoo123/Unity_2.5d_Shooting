@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 426411790}
   - component: {fileID: 426411791}
   - component: {fileID: 426411792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -886,7 +886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 911562090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 1129841889}
   - component: {fileID: 1129841891}
   - component: {fileID: 1129841890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,7 +1078,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1194845974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shot Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 1846358269}
   - component: {fileID: 1846358270}
   - component: {fileID: 1846358271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}

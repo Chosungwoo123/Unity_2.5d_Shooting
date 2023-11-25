@@ -145,6 +145,9 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DashRoutine()
     {
         float timer = 0f;
+
+        // 대쉬 전용 레이어로 셋팅
+        gameObject.layer = 9;
         
         isDash = true;
         canDash = false;
@@ -174,6 +177,8 @@ public class PlayerController : MonoBehaviour
 
             yield return null;
         }
+        
+        gameObject.layer = 8;
         
         isDash = false;
         
