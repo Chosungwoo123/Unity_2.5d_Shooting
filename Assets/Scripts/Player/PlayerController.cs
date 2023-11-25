@@ -22,6 +22,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode dashKey = KeyCode.LeftShift;
     [SerializeField] private float dashCoolTime;
     [SerializeField] private float dashSpeed;
+    [SerializeField] private float afterImageDistance;
+
+    #endregion
+
+    #region 프리팹 관련 오브젝트
+
+    [Space(10)] [Header("프리팹 관련 오브젝트")] 
+    [SerializeField] private AfterImage afterImagePrefab;
 
     #endregion
     
@@ -136,8 +144,9 @@ public class PlayerController : MonoBehaviour
     
     private IEnumerator DashRoutine()
     {
+        float timer = 0f;
+        
         isDash = true;
-
         canDash = false;
         
         if (moveDirection == Vector3.zero)
@@ -145,9 +154,26 @@ public class PlayerController : MonoBehaviour
             moveDirection.z = 1;
         }
         
-        rigid.velocity = moveDirection.normalized * dashSpeed;
+        Vector3 lastAfterImagePos = transform.position;
 
-        yield return dashTimeSeconds;
+        Instantiate(afterImagePrefab, lastAfterImagePos, Quaternion.identity).InitAfterImage(sr.sprite, transform.localScale);
+        
+        rigid.velocity = moveDirection.normalized * dashSpeed;
+        
+        while (timer <= dashTime)
+        {
+            if (Vector3.Distance(transform.position, lastAfterImagePos) >= afterImageDistance)
+            {
+                lastAfterImagePos = transform.position;
+                
+                var afterImage = Instantiate(afterImagePrefab, lastAfterImagePos, Quaternion.identity);
+                afterImage.InitAfterImage(sr.sprite, transform.localScale);
+            }
+
+            timer += Time.deltaTime;
+
+            yield return null;
+        }
         
         isDash = false;
         

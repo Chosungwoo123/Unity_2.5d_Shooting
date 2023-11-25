@@ -51,7 +51,7 @@ public class Test_Weapon : MonoBehaviour
         
         var _bullet = Instantiate(bullet, shotPos.position, Quaternion.identity);
 
-        Vector3 randomPos = new Vector3(Random.Range(-2f, 2f), 0, Random.Range(-2f, 2f));
+        Vector3 randomPos = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
         
         _bullet.Init(dir + randomPos);
     }
