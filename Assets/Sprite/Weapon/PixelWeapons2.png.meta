@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,18 +115,194 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PixelWeapons2_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 15
+        width: 26
+        height: 6
+      alignment: 9
+      pivot: {x: 0.3115154, y: 0.4557177}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f8245101604d84d84845b991d0b257
+      internalID: 435055044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelWeapons2_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 15
+        width: 8
+        height: 7
+      alignment: 9
+      pivot: {x: 0.4926195, y: 0.47469574}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed46878266caf34c861ed03ab15404d
+      internalID: 1456810538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelWeapons2_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 17
+        width: 22
+        height: 4
+      alignment: 9
+      pivot: {x: 0.36715248, y: 0.46309805}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22fef18c349a384fb5d4ba354e7a753
+      internalID: 768081270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelWeapons2_3
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 17
+        width: 10
+        height: 6
+      alignment: 9
+      pivot: {x: 0.25201797, y: 0.4261961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563725abfb24ecd4c8fc748598f0915e
+      internalID: -1216140277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelWeapons2_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 20
+        height: 8
+      alignment: 9
+      pivot: {x: 0.7108692, y: 0.3621242}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52aeb88333ac0db4b95a24f32a14f0a3
+      internalID: -467519777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelWeapons2_5
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 2
+        width: 23
+        height: 8
+      alignment: 9
+      pivot: {x: 0.34766653, y: 0.39456558}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47226092f944bcc499d4a421f4d52777
+      internalID: 2098896289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelWeapons2_6
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 3
+        width: 17
+        height: 8
+      alignment: 9
+      pivot: {x: 0.50190824, y: 0.42700714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c4d80a77253bc45a8d7fd5841d08e0
+      internalID: 806857464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelWeapons2_7
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 6
+        width: 21
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5175658, y: 0.41157192}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8163ba5e0c704f64fb036099352089fc
+      internalID: 661328424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 809e80dc82e57b640bf928b802643b66
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PixelWeapons2_0: 435055044
+      PixelWeapons2_1: 1456810538
+      PixelWeapons2_2: 768081270
+      PixelWeapons2_3: -1216140277
+      PixelWeapons2_4: -467519777
+      PixelWeapons2_5: 2098896289
+      PixelWeapons2_6: 806857464
+      PixelWeapons2_7: 661328424
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
