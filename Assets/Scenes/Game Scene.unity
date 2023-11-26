@@ -668,7 +668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 694169020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Map Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 784481597}
   - component: {fileID: 784481596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Map Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -919,7 +919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 969047089}
   - component: {fileID: 969047088}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Map Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1225,7 +1225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282656543}
   - component: {fileID: 1282656542}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Map Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1719,7 +1719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816055498}
   - component: {fileID: 1816055499}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Map Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
