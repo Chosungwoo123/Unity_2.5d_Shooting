@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.48160172, g: 0.14919636, b: 0.41953892, a: 1}
+  m_IndirectSpecularColor: {r: 0.48262796, g: 0.14958377, b: 0.41992944, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1271,6 +1271,7 @@ GameObject:
   - component: {fileID: 1528222322}
   - component: {fileID: 1528222324}
   - component: {fileID: 1528222323}
+  - component: {fileID: 1528222325}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -1348,6 +1349,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1528222325
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528222321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 146.1724, y: 101.86923, z: -789.22034}
 --- !u!1 &1611091283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,8 +1528,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686523829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 86.6, y: 1.1, z: 51.3}
-  m_LocalScale: {x: 1, y: 1, z: 0.021091}
+  m_LocalPosition: {x: 86.6, y: 2.31, z: 51.3}
+  m_LocalScale: {x: 1, y: 2.8542, z: 0.021091}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1849,15 +1867,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1846358268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3b9540a0947a14cbe065e95f9bedc2, type: 3}
+  m_Script: {fileID: 11500000, guid: cc717cded8804ac4a87ed29a3fdc05aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponDetails: {fileID: 11400000, guid: 5a567278cd8297b4bb0c4c96f01096e3, type: 2}
   shotPos: {fileID: 1194845974}
   camera: {fileID: 330585545}
-  bullet: {fileID: 1815134095921507912, guid: 7e4e5e79d8a068c4ea7219a2b96e45d0, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
+  shotLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  tracerEffect: {fileID: 4881984873464373376, guid: 0e5b1a8d665498644b4fdd965d7a06d8,
+    type: 3}
 --- !u!1 &2084823573
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,6 @@ public class Test_Weapon : MonoBehaviour
     
     private void Shot()
     {
-        
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         
         RaycastHit hit;
