@@ -1157,7 +1157,7 @@ GameObject:
   - component: {fileID: 1214866879}
   - component: {fileID: 1214866881}
   - component: {fileID: 1214866880}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1622,7 +1622,7 @@ GameObject:
   - component: {fileID: 1780560814}
   - component: {fileID: 1780560813}
   - component: {fileID: 1780560812}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1931,13 +1931,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDetails: {fileID: 11400000, guid: 5a567278cd8297b4bb0c4c96f01096e3, type: 2}
   shotPos: {fileID: 1194845974}
-  camera: {fileID: 330585545}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   shotLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 3072
   tracerEffect: {fileID: 4881984873464373376, guid: 0e5b1a8d665498644b4fdd965d7a06d8,
     type: 3}
 --- !u!1 &2084823573
