@@ -7,7 +7,6 @@ public class WeaponBase : MonoBehaviour
 {
     [SerializeField] private WeaponDetails weaponDetails;
     [SerializeField] private Transform shotPos;
-    [SerializeField] private Camera camera;
 
     public LayerMask enemyLayer;
     public LayerMask shotLayer;
@@ -16,6 +15,8 @@ public class WeaponBase : MonoBehaviour
 
     private float fireRate;
     private float fireTimer;
+    
+    private Camera camera;
 
     private void Start()
     {
@@ -84,6 +85,8 @@ public class WeaponBase : MonoBehaviour
         {
             tracer.AddPosition(hit.point);
         }
+        
+        GameManager.Instance.CameraShake(10, 0.1f);
     }
 
     public void InitWeapon(WeaponDetails weaponDetail)
@@ -92,5 +95,7 @@ public class WeaponBase : MonoBehaviour
 
         fireRate = weaponDetails.fireRate;
         fireTimer = 0;
+
+        camera = GameManager.Instance.mainCamera;
     }
 }
