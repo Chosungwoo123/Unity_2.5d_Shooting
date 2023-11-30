@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WeaponBase : MonoBehaviour
 {
@@ -73,7 +74,13 @@ public class WeaponBase : MonoBehaviour
             }
         }
 
+        // Calculate random spread angle between min and max
+        float randomSpread = Random.Range(0f, 7f);
+  
+        int spreadToggle = Random.Range(0,2) * 2 -1;
+        
         angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+        angle += spreadToggle * randomSpread;
         
         // 플레이어 오브젝트의 스케일이 -1일때 앵글이 이상해지는 버그를 방지하기 위한 삼항연산자
         shotPos.localRotation = Quaternion.Euler(0, transform.root.localScale.x > 0 ? angle : -angle, 0);
