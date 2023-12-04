@@ -12,7 +12,7 @@ public class WeaponBase : MonoBehaviour
     public LayerMask enemyLayer;
     public LayerMask shotLayer;
 
-    public TrailRenderer tracerEffect;
+    public LineRenderer tracerEffect;
 
     private float fireRate;
     private float fireTimer;
@@ -49,7 +49,7 @@ public class WeaponBase : MonoBehaviour
         Vector3 dir = Vector3.zero;
 
         var tracer = Instantiate(tracerEffect, shotPos.position, Quaternion.identity);
-        tracer.AddPosition(shotPos.position);
+        tracer.SetPosition(0, shotPos.position);
         
         float angle = 0;
         
@@ -90,7 +90,8 @@ public class WeaponBase : MonoBehaviour
                 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, shotLayer))
         {
-            tracer.AddPosition(hit.point);
+            tracer.SetPosition(1, hit.point);
+            tracer.GetComponent<Tracer>().StartWidthAnimation(0.15f);
         }
         
         GameManager.Instance.CameraShake(10, 0.1f);

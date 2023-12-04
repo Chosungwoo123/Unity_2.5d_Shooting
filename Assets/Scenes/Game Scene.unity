@@ -1937,7 +1937,7 @@ MonoBehaviour:
   shotLayer:
     serializedVersion: 2
     m_Bits: 3072
-  tracerEffect: {fileID: 4881984873464373376, guid: 0e5b1a8d665498644b4fdd965d7a06d8,
+  tracerEffect: {fileID: 1259931016373224446, guid: 0e5b1a8d665498644b4fdd965d7a06d8,
     type: 3}
 --- !u!1 &2084823573
 GameObject:
