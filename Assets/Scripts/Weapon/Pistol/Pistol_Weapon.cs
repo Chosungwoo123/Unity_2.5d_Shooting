@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Pistol_Weapon : WeaponBase
@@ -37,8 +38,7 @@ public class Pistol_Weapon : WeaponBase
                 dir.y = 0;
             }
         }
-
-        // Calculate random spread angle between min and max
+        
         float randomSpread = Random.Range(0f, spreadAmount);
   
         int spreadToggle = Random.Range(0,2) * 2 -1;
@@ -52,10 +52,20 @@ public class Pistol_Weapon : WeaponBase
         ray.origin = shotPos.position;
         ray.direction = shotPos.forward.normalized;
                 
+        // 벽 쪽에만 충돌됨
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, shotLayer))
         {
             tracer.SetPosition(1, hit.point);
             tracer.GetComponent<Tracer>().StartWidthAnimation(0.15f);
+        }
+        
+        // 적들에게 데미지 주기
+        foreach (var enemy in Physics.RaycastAll(shotPos.position, dir.normalized, Mathf.Infinity, enemyLayer))
+        {
+            if (enemy.transform.TryGetComponent(out EnemyBase enemyBase))
+            {
+                enemyBase.OnDamage(weaponDetails.damage);
+            }
         }
         
         GameManager.Instance.CameraShake(10, 0.1f);

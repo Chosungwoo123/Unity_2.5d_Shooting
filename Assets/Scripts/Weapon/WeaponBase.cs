@@ -20,6 +20,8 @@ public abstract class WeaponBase : MonoBehaviour
     
     protected Camera camera;
 
+    private Dictionary<int, string> d = new Dictionary<int, string>();
+
     private void Start()
     {
         InitWeapon(weaponDetails);
