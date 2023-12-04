@@ -12,5 +12,7 @@ public class WeaponDetails : ScriptableObject
 
     public float fireRate;
 
+    public float spreadAmount;
+
     #endregion
 }
