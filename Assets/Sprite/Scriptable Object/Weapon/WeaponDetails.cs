@@ -15,4 +15,11 @@ public class WeaponDetails : ScriptableObject
     public float spreadAmount;
 
     #endregion
+
+    #region 기타
+
+    [Space(10)] [Header("기타 스탯")] 
+    public float cameraShakeAmount;
+
+    #endregion
 }

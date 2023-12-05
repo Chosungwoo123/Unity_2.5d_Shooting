@@ -68,6 +68,6 @@ public class Pistol_Weapon : WeaponBase
             }
         }
         
-        GameManager.Instance.CameraShake(10, 0.1f);
+        GameManager.Instance.CameraShake(weaponDetails.cameraShakeAmount, 0.1f);
     }
 }
