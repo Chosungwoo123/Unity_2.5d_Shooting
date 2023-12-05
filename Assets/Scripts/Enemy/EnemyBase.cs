@@ -7,6 +7,8 @@ public class EnemyBase : MonoBehaviour
 {
     public float maxHealth;
 
+    public GameObject dieEffect;
+
     private float curHealth;
 
 
@@ -23,6 +25,8 @@ public class EnemyBase : MonoBehaviour
 
         if (curHealth <= 0)
         {
+            Instantiate(dieEffect, transform.position, Quaternion.identity);
+            
             Destroy(gameObject);
         }
     }

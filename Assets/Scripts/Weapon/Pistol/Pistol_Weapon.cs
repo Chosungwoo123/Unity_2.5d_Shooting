@@ -7,6 +7,8 @@ public class Pistol_Weapon : WeaponBase
 {
     protected override void ShotWeapon()
     {
+        GameManager.Instance.CameraShake(weaponDetails.cameraShakeAmount, 0.1f);
+        
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         
         RaycastHit hit;
@@ -67,7 +69,5 @@ public class Pistol_Weapon : WeaponBase
                 enemyBase.OnDamage(weaponDetails.damage);
             }
         }
-        
-        GameManager.Instance.CameraShake(weaponDetails.cameraShakeAmount, 0.1f);
     }
 }
