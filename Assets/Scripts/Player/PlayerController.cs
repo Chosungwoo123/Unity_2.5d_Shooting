@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float groundDist;
 
+    [SerializeField] private int skillCount;
+
     #endregion
 
     #region 대쉬 관련 스탯
@@ -56,6 +58,8 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
+        GameManager.Instance.InitSkillGauge(skillCount);
+
         canDash = true;
 
         dashTimeSeconds = new WaitForSeconds(dashTime);
@@ -66,6 +70,11 @@ public class PlayerController : MonoBehaviour
         InputUpdate();
         DashUpdate();
         AnimationUpdate();
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            GameManager.Instance.GetSkillExp(1.25f);
+        }
     }
 
     private void FixedUpdate()

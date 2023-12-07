@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,21 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region UI 관련 오브젝트
+
+    [Space(10)]
+    [Header("UI 관련 오브젝트")]
+    [SerializeField] private SkillGauge skillGaugePrefab;
+    [SerializeField] private Transform skillGaugeParent;
+
+    #endregion
+
+    private int skillCount;
+
+    private float skillExp;
+
+    private List<SkillGauge> skillGaugeList;
+
     private void Awake()
     {
         if (instance == null)
@@ -44,9 +60,35 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    private void Start()
+    {
+        skillGaugeList = new List<SkillGauge>();
+    }
+
     public void CameraShake(float intensity, float time)
     {
         cameraShake.ShakeCamera(intensity, time);
+    }
+
+    public void InitSkillGauge(int skillGaugeCount)
+    {
+        for (int i = 0; i < skillGaugeCount; i++)
+        {
+            skillGaugeList.Add(Instantiate(skillGaugePrefab, skillGaugeParent));
+            skillGaugeList[i].SetFillAmount(0);
+        }
+
+        skillCount = skillGaugeCount;
+    }
+
+    public void GetSkillExp(float exp)
+    {
+        skillExp = Mathf.Min(skillExp + exp, skillCount);
+
+        for (int i = 0; i < skillCount; i++)
+        {
+            skillGaugeList[i].SetFillAmount(skillExp - i);
+        }
     }
 }
